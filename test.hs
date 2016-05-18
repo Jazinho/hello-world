@@ -15,8 +15,6 @@ length1(_) = 0
 --take1(num,x:t) = do take1(num-1,t) : x
 take1 (1,x:_) = x
 
-Od Słowika:
-
 mymap fun [] = []
 mymap fun (x:xs) = (fun x) : (mymap fun xs)
 

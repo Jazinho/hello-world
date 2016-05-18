@@ -61,7 +61,7 @@ genKill (B,a,b) board = catMaybes [a1, a2, a3, a4]
            a3 = if (elem (B,a,b) board && notElem (B,a-2,b+2) board && notElem (W,a-2,b+2) board && elem (W,a-1,b+1) board && a>2 && b<7) then Just (Branch{nextHop=(a-2,b+2), nextStruct = genKill (B,a-2,b+2) (dodaj (usun board (W,a-1,b+1)) (B,a-2,b+2))} ) else Nothing
            a4 = if (elem (B,a,b) board && notElem (B,a-2,b-2) board && notElem (W,a-2,b-2) board && elem (W,a-1,b-1) board && a>2 && b>2) then Just (Branch{nextHop=(a-2,b-2), nextStruct = genKill (B,a-2,b-2) (dodaj (usun board (W,a-1,b-1)) (B,a-2,b-2))} ) else Nothing
 
---przy przypisywaniu wyniku funkcji usun nie nalezy przypisywaæ wyniku do tej samej zmiennej - zawiesza program
+--przy przypisywaniu wyniku funkcji usun nie nalezy przypisywaæ wyniku do tej samej zmiennej - zawiesza program 
 
 usun :: Board -> (Field,Integer,Integer) -> Board
 usun ((f,x,y):board) (fi,a,b) = if x==a && y==b && f==fi then board
